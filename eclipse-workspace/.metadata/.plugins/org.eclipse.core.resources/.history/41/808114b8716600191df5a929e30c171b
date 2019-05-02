@@ -1,0 +1,22 @@
+package project190424_test;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String str = "abCdEFGhI";
+		String str2 = "abCdEFGhI";
+		Object ob1 = new Object();
+		Object ob2 = new Object();
+		
+		System.out.println(str);
+		System.out.println(str == str2);
+		System.out.println(str.equals(str2));
+		System.out.println(str == "abCdEFGhI");
+		System.out.println(str.equals("abCdEFGhI"));
+		
+		System.out.println(ob1 == ob2);
+		
+	}
+
+}

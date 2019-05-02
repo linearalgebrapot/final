@@ -1,0 +1,21 @@
+package project190424_test;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String str = "abCdEFGhI";
+		String str2 = "abCdEFGh";
+		String str3 = "abcdefghi";
+		String str4 = "  d d ";
+		
+		System.out.println(str.length());
+		System.out.println(str.equals(str2));
+		System.out.println(str.equals(str3));
+		System.out.println(str.equalsIgnoreCase(str3));
+		System.out.println(str.toLowerCase());
+		System.out.println(str.toUpperCase());
+		System.out.println(str4.trim());
+	}
+
+}

@@ -1,0 +1,74 @@
+
+import java.util.Scanner;
+
+enum DAYS {
+	monday, tuesday, wednesday, thursday, friday // 대소문자 무시 어떻게?
+}  //예시랑 다르긴 하지만 ~~~.name()으로 String으로 바꾸고 .toLowerCase()로 소문자로 통일해서 받음. valueOf 아직 잘 모르겠다 //180512 OK valueOf 어떻게 쓰는지 모르겠음
+
+public class TimeTableApp {
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		TimeTable tt = new TimeTable();
+		int num;
+		
+		String name, tutor, room, day;
+		int period;
+		boolean check;
+		
+		while(true) {
+			mainMenu();
+			num = sc.nextInt();
+			sc.nextLine();
+			switch(num) {
+			case 1:
+				System.out.println("Enter the day of the class");
+				day = sc.nextLine();
+				System.out.println("Enter the period of the class");
+				period = sc.nextInt();
+				sc.nextLine();
+				System.out.println("Enter the name of the class");
+				name = sc.nextLine();
+				System.out.println("Enter the tutor of the class");
+				tutor = sc.nextLine();
+				System.out.println("Enter the room of the class");
+				room = sc.nextLine();
+				
+				check = tt.setSchedule(day.toLowerCase(), period, name, tutor, room); //OK...? 그냥 day.toLowerCase()랑 뭐가 다르지?
+				
+				if (check == true)
+					System.out.println("Class is successfully added");
+				else
+					System.out.println("Class is NOT added");
+				
+				break;
+			
+			case 2:
+				System.out.println("Enter day of the class");
+				day = sc.nextLine();
+				System.out.println("Enter period of the class");
+				period = sc.nextInt();
+				sc.nextLine();
+				System.out.println(tt.getSchedule(day.toLowerCase(), period).getDetails()); //이것도 OK
+				
+				break;
+				
+			case 3:
+				System.out.println(tt.toString());
+				break;
+				
+			case 4:
+				sc.close();
+				System.exit(0);
+				
+			default:
+				break;
+			}
+		}
+	}
+	public static void mainMenu() {
+		System.out.println("==========Main Menu==========\n" + "(1) Add a class to my time table:\n" + "(2) View the class at a specific time:\n" + "(3) Print the time table:\n" + "(4) Exit the program:\n" + "==========Main Menu==========");
+	}
+}

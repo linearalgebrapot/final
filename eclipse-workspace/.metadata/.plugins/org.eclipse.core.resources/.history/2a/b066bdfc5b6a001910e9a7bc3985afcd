@@ -1,0 +1,4 @@
+
+public class TempDist {
+	Point[] pointSet;
+}

@@ -1,0 +1,12 @@
+package project190424_test;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("A".equals('A'));
+		System.out.println("34" + 32);
+		System.out.println(34 + "32");
+	}
+
+}

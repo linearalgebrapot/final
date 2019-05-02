@@ -1,0 +1,28 @@
+package project190424_test;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String str = "abCdEFGhI";
+		String str2 = "abCdEFGhI";	
+		System.out.println(str);
+		System.out.println(str == str2);
+		System.out.println(str.equals(str2));
+		System.out.println(str == "abCdEFGhI");
+		System.out.println(str.equals("abCdEFGhI"));
+		
+		System.out.println("Integer 2°³ ¼±¾ð");
+		Integer i1 = new Integer(1);
+		Integer i2 = new Integer(1);
+		System.out.println(i1 == i2);
+		System.out.println(i1.equals(i2));
+		
+		System.out.println("i1 = i2;");
+		i1 = i2;
+		System.out.println(i1 == i2);
+		System.out.println(i1.equals(i2));
+		
+	}
+
+}

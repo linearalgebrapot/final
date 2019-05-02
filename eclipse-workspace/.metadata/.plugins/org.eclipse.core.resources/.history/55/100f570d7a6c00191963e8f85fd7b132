@@ -1,0 +1,24 @@
+package project190502_overridingTest;
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Parent myP = new Parent();
+		Child myC = new Child();
+		
+		myP.myFunc();
+		myP.myStaticFunc();
+		
+		myC.myFunc();
+		myC.myStaticFunc();
+		
+		Parent myV = new Child();
+		
+		myV.myFunc();
+		myV.myStaticFunc();
+		
+		//(Parent)myV.myFunc();
+	}
+
+}
