@@ -105,6 +105,7 @@ public class PseudoErlangK2Dist extends Dist{
 	public int ramda;
 	public double prob;
 	public int[] recordEachInterval;
+	public int failureCount;
 	//----------------------------
 	public double compareMean;
 	public double compareVariance;
@@ -131,12 +132,12 @@ public class PseudoErlangK2Dist extends Dist{
 			//int tmp1, tmp2;
 			for(j=0;j<domain;j++) {
 				int isThisSuccess = rnd.nextInt(domain);
-				if(isThisSuccess < ramda && secondSuccess != -2) {
+				if(isThisSuccess < ramda && secondSuccess != -1) {
 					thirdSuccess = j;
 					break;
 				}
 				
-				if(isThisSuccess < ramda && firstSuccess != -1  && secondSuccess == -2) {
+				if(isThisSuccess < ramda && firstSuccess != -1  && secondSuccess == -1) {
 					secondSuccess = j;
 				}
 				

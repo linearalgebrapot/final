@@ -32,42 +32,59 @@ public class PseudoExponentialDist extends Dist{
 			Random rnd = new Random();
 			firstSuccess = -1;
 			secondSuccess = -2;
+			int tmp1, tmp2;
 			for(j=0;j<domain;j++) {
-				int randNum = rnd.nextInt(domain);
-				if(randNum < lambda && firstSuccess != -1) { //두 번째 성공을 먼저 체크하고
+				int isThisSuccess = rnd.nextInt(domain);			
+				if(isThisSuccess < lambda && firstSuccess != 0) { //두 번째 성공을 먼저 체크하고
+					if(firstSuccess == 0)
+						System.out.println("??? : " + secondSuccess + "  " + firstSuccess);
 					secondSuccess = j;
 					break;
-				}	
-				if(randNum < lambda && firstSuccess == -1) { //첫 번째 성공을 나중에
+				}
+				
+				if(isThisSuccess < lambda && firstSuccess == 0) { //첫 번째 성공을 나중에
 					firstSuccess = j;
 				}
 			}
 			if(secondSuccess - firstSuccess < 0) { //secondSuccess가 없어서 음수인 케이스 == 성공이 2번 관측되지 않은 케이스
 				failureCount++;
 			}
-			if(secondSuccess != -1) {
+			if(secondSuccess != 0) {
 				this.recordEachInterval[secondSuccess - firstSuccess]++;
 			}
 		}
+//		double m=0;
+//		double p=0;
 		for(i=0;i<this.pointSet.length;i++) {
 			this.pointSet[i].x = i;
 			this.pointSet[i].value = (double)i/domain;
 			this.pointSet[i].y = (double)(this.recordEachInterval[i])/(REAPEAT-failureCount);
-
+			
+//			if(this.pointSet[i].y != 0) {
+//				//System.out.println("(" + pointSet[i].x + ", " + pointSet[i].y + ") : " + pointSet[i].value);
+//				m = m + (this.pointSet[i].value*this.pointSet[i].y);	
+//				//System.out.println((this.pointSet[i].value*this.pointSet[i].y) + "를 더해서 " + m + "이 되었다.");
+//				p += pointSet[i].y;
+//			}
 			compareMean += (double)i/domain * (double)(this.recordEachInterval[i])/(REAPEAT);
 			compareVariance += (double)i/domain * (double)i/domain * (double)(this.recordEachInterval[i])/(REAPEAT);
 		}
+		//System.out.println(m);
+		//System.out.println(p);
 		compareVariance -= compareMean * compareMean;
+		
 	}
 	
 	public void showData() {
 		System.out.println("Show data : ");
+//		for(int i=0;i<pointSet.length;i++) 
+//			System.out.println("(" + pointSet[i].x + ", " + pointSet[i].y + ") : " + pointSet[i].value);
 		System.out.println("failureCount : " + failureCount);
 		System.out.println("Domain : 0 <= x <= " + (domain-1));
 		System.out.println("lambda : " + lambda);
 		System.out.println("Mean : " + getMean());
-		//System.out.println("compareMean : " + compareMean);
+		System.out.println("compareMean : " + compareMean);
 		System.out.println("Variance : " + getVariance());
-		//System.out.println("compareVariance : " + compareVariance);
+		System.out.println("compareVariance : " + compareVariance);
 	}
 }

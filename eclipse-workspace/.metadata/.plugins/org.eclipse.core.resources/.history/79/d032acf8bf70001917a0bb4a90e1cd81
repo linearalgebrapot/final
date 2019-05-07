@@ -32,20 +32,24 @@ public class PseudoExponentialDist extends Dist{
 			Random rnd = new Random();
 			firstSuccess = -1;
 			secondSuccess = -2;
+			int tmp1, tmp2;
 			for(j=0;j<domain;j++) {
-				int randNum = rnd.nextInt(domain);
-				if(randNum < lambda && firstSuccess != -1) { //두 번째 성공을 먼저 체크하고
+				int isThisSuccess = rnd.nextInt(domain);			
+				if(isThisSuccess < lambda && firstSuccess != 0) { //두 번째 성공을 먼저 체크하고
+					if(firstSuccess == 0)
+						System.out.println("??? : " + secondSuccess + "  " + firstSuccess);
 					secondSuccess = j;
 					break;
-				}	
-				if(randNum < lambda && firstSuccess == -1) { //첫 번째 성공을 나중에
+				}
+				
+				if(isThisSuccess < lambda && firstSuccess == 0) { //첫 번째 성공을 나중에
 					firstSuccess = j;
 				}
 			}
 			if(secondSuccess - firstSuccess < 0) { //secondSuccess가 없어서 음수인 케이스 == 성공이 2번 관측되지 않은 케이스
 				failureCount++;
 			}
-			if(secondSuccess != -1) {
+			if(secondSuccess != 0) {
 				this.recordEachInterval[secondSuccess - firstSuccess]++;
 			}
 		}
