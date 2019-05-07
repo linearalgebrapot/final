@@ -156,7 +156,7 @@ public class PseudoErlangK2Dist extends Dist{
 		for(i=0;i<this.pointSet.length;i++) {
 			this.pointSet[i].x = i;
 			this.pointSet[i].value = (double)i/domain;
-			this.pointSet[i].y = (double)(this.recordEachInterval[i])/(REAPEAT-2-failureCount);
+			this.pointSet[i].y = (double)(this.recordEachInterval[i])/(REAPEAT-failureCount);
 		
 			compareMean += (double)i/domain * (double)(this.recordEachInterval[i])/(REAPEAT);
 			compareVariance += (double)i/domain * (double)i/domain * (double)(this.recordEachInterval[i])/(REAPEAT);
