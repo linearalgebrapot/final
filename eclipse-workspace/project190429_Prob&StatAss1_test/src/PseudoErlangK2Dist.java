@@ -166,6 +166,7 @@ public class PseudoErlangK2Dist extends Dist{
 	
 	public void showData() {
 		System.out.println("Show data : ");
+		System.out.println("이상함 : " + this.pointSet[1].y);
 		System.out.println("failureCount : " + failureCount);
 		System.out.println("Domain : 0 <= x <= " + (domain-1));
 		System.out.println("lambda : " + ramda);

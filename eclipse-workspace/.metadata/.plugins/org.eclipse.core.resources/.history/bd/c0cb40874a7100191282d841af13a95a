@@ -1,0 +1,17 @@
+package lab08;
+
+public class Engineer extends Employee{
+	private int rate;
+	
+	public Engineer(String name, int employeeNum) {
+		super(name, employeeNum);
+		
+		this.rate = 4;
+		this.setDepartment("Engineering");
+	}
+	
+	public double getPaid() {
+		return workHrs * rate;
+	}
+
+}

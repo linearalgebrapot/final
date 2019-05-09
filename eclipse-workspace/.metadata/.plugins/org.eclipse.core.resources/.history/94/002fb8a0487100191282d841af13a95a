@@ -1,0 +1,14 @@
+package lab08;
+
+public abstract class Employ {
+	private String name;
+	private int employeeNum;
+	private String department;
+	private int workHrs;
+	private double salary;
+	
+	public Employee(String name, int employeeNum) {
+		this.name = name;
+		this.employeeNum = employeeNum;
+	}
+}

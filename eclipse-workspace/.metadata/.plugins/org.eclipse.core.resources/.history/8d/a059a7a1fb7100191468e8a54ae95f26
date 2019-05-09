@@ -1,0 +1,20 @@
+package lab09;
+
+import java.util.Scanner;
+
+public class ExceptionDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner key = new Scanner(System.in);
+		Employee emp = new Employee("Lee");
+		while(true) {
+			try {
+				System.out.println(emp.getWorkDay() + "일차 근무시간을 입력하세요 : ");
+				System.out.println("이름 : " + emp.getName());
+				System.out.println("누적 근무 시간 : " + emp.workHrs);
+			}
+		}
+	}
+
+}
